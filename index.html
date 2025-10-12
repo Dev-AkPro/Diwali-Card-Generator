@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            overflow-x: hidden;
+            background: #1a0033;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Image Background */
+        .image-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .image-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+
+        /* Container */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Snapshot wrapper to capture background */
+        body.capturing .container {
+            background-image: url('Luxurious Rich Violet Rotating Line Mandala Simple Looping Animation Blank Vertical Video Background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        body.capturing .image-background,
+        body.capturing .overlay {
+            display: none;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: #2D1B69;
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border: none;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Diya Animation */
+        .diya-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .diya {
+            filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.8));
+            animation: flicker 2s ease-in-out infinite;
+        }
+
+        .diya-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+                filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.8));
+            }
+            50% {
+                opacity: 0.8;
+                filter: drop-shadow(0 0 30px rgba(255, 140, 0, 1));
+            }
+        }
+
+        /* Title */
+        h1 {
+            font-size: 3.5rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: titleGlow 3s ease-in-out infinite, titlePulse 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                         0 0 40px rgba(255, 215, 0, 0.6),
+                         0 0 60px rgba(255, 165, 0, 0.4);
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                             0 0 40px rgba(255, 215, 0, 0.6),
+                             0 0 60px rgba(255, 165, 0, 0.4);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                             0 0 60px rgba(255, 215, 0, 0.8),
+                             0 0 90px rgba(255, 165, 0, 0.6);
+            }
+        }
+
+        @keyframes titlePulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-size: 1.2rem;
+            color: #FFA500;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            animation: subtitleShimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes subtitleShimmer {
+            0%, 100% {
+                opacity: 0.9;
+                color: #FFA500;
+            }
+            50% {
+                opacity: 1;
+                color: #FFD700;
+            }
+        }
+
+        /* Message */
+        .message {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #F5F5F5;
+            margin-bottom: 25px;
+            font-weight: 300;
+            background: #3D2B7A;
+            padding: 25px 35px;
+            border-radius: 16px;
+            font-family: 'Georgia', 'Palatino', serif;
+            font-style: italic;
+            position: relative;
+            border-left: 4px solid #FFD700;
+            text-align: left;
+        }
+
+        .message::before {
+            content: '"';
+            font-size: 4rem;
+            color: #FFD700;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .message-by {
+            margin-top: 10px;
+            text-align: right;
+            font-size: 1rem;
+            color: #FFD700;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        #userName {
+            color: #FFA500;
+            font-weight: 600;
+        }
+
+        /* Mandala Image */
+        .mandala-image {
+            display: none;
+        }
+
+        /* Wishes */
+        .wishes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .wish-card {
+            background: #4A3580;
+            padding: 20px 15px;
+            border-radius: 16px;
+            border: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-8px);
+            background: #5A4590;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .wish-icon {
+            margin-bottom: 12px;
+        }
+
+        .wish-icon img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .wish-text {
+            font-size: 1rem;
+            color: #FFD700;
+            font-weight: 500;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleAnimation 2s ease-out forwards;
+            z-index: 1000;
+        }
+
+        @keyframes sparkleAnimation {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: #FFD700;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .message {
+                font-size: 0.9rem;
+                padding: 25px 20px;
+                line-height: 1.5;
+            }
+
+            .message::before {
+                font-size: 2.5rem;
+                top: 5px;
+                left: 10px;
+            }
+
+            .message-by {
+                margin-top: 8px;
+                font-size: 0.9rem;
+            }
+
+            .main-card {
+                padding: 40px 20px;
+            }
+
+            .diya-img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .wishes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .wish-icon img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .wish-text {
+                font-size: 0.9rem;
+            }
+
+            .action-buttons {
+                bottom: 20px;
+                right: 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .action-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Fireworks */
+        .firework {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            background: #4A3580;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .action-btn:hover {
+            background: #FFD700;
+            color: #4A3580;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .action-btn i {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Image Background -->
+    <div class="image-background">
+        <img src="Luxurious Rich Violet Rotating Line Mandala Simple Looping Animation Blank Vertical Video Background.jpg" alt="Background">
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-card">
+            <!-- Diyas -->
+            <div class="diya-container">
+                <span class="diya">
+                    <img src="image.png" alt="Diya" class="diya-img">
+                </span>
+                <span class="diya">
+                    <img src="image.png" alt="Diya" class="diya-img">
+                </span>
+                <span class="diya">
+                    <img src="image.png" alt="Diya" class="diya-img">
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h1>Happy Diwali</h1>
+            <div class="subtitle">Festival of Lights 2025</div>
+
+            <!-- Message -->
+            <div class="message">
+                May the divine light of Diwali spread into your life peace, prosperity, happiness and good health.
+                <br>
+                Wishing you and your family a joyous and blessed Diwali filled with love, laughter, and sweet memories.
+                <br>
+                <div class="message-by">- By <span id="userName">Your Name</span></div>
+            </div>
+
+            <!-- Mandala Image -->
+            <div class="mandala-image">
+                <img src="Luxurious Rich Violet Rotating Line Mandala Simple Looping Animation Blank Vertical Video Background.jpg" alt="Mandala">
+            </div>
+
+            <!-- Wishes Grid -->
+            <div class="wishes">
+                <div class="wish-card">
+                    <div class="wish-icon"><img src="pngtree-namaste-hand-illustration-with-flower-png-image_6460153.png" alt="Namaste"></div>
+                    <div class="wish-text">Prosperity</div>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon"><img src="pngtree-namaste-hand-illustration-with-flower-png-image_6460153.png" alt="Namaste"></div>
+                    <div class="wish-text">Wealth</div>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon"><img src="pngtree-namaste-hand-illustration-with-flower-png-image_6460153.png" alt="Namaste"></div>
+                    <div class="wish-text">Happiness</div>
+                </div>
+                <div class="wish-card">
+                    <div class="wish-icon"><img src="pngtree-namaste-hand-illustration-with-flower-png-image_6460153.png" alt="Namaste"></div>
+                    <div class="wish-text">Success</div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                May your Diwali be filled with endless moments of joy and love
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" id="changeNameBtn">
+            <i class="fas fa-user-edit"></i> Change Name
+        </button>
+        <button class="action-btn" id="snapshotBtn">
+            <i class="fas fa-camera"></i> Take Snapshot
+        </button>
+    </div>
+
+    <script>
+        // Change Name Functionality
+        document.getElementById('changeNameBtn').addEventListener('click', function() {
+            const currentName = document.getElementById('userName').textContent;
+            const newName = prompt('Enter your name:', currentName);
+            if (newName && newName.trim() !== '') {
+                document.getElementById('userName').textContent = newName.trim();
+            }
+        });
+
+        // Take Snapshot Functionality
+        document.getElementById('snapshotBtn').addEventListener('click', async function() {
+            // Hide action buttons before taking snapshot
+            const actionButtons = document.querySelector('.action-buttons');
+            actionButtons.style.display = 'none';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Wait a moment for everything to settle
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            // Show instructions
+            alert('Please use your browser screenshot tool:\n\n' +
+                  '• Windows: Press Windows + Shift + S\n' +
+                  '• Mac: Press Cmd + Shift + 4\n' +
+                  '• Or use browser DevTools (F12) > Screenshot\n\n' +
+                  'The buttons are now hidden for a clean screenshot!');
+            
+            // Keep buttons hidden for 10 seconds to allow screenshot
+            setTimeout(() => {
+                const showAgain = confirm('Ready to show buttons again?');
+                if (showAgain || showAgain === null) {
+                    actionButtons.style.display = 'flex';
+                }
+            }, 10000);
+        });
+
+        // Create sparkles on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.9) {
+                createSparkle(e.pageX, e.pageY);
+            }
+        });
+
+        // Create sparkles on wish card hover
+        document.querySelectorAll('.wish-card').forEach(card => {
+            card.addEventListener('mouseenter', function(e) {
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        const rect = this.getBoundingClientRect();
+                        const x = rect.left + Math.random() * rect.width;
+                        const y = rect.top + Math.random() * rect.height;
+                        createSparkle(x, y);
+                    }, i * 50);
+                }
+            });
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.background = `hsl(${Math.random() * 60 + 30}, 100%, 50%)`;
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Random fireworks
+        function createFirework() {
+            const colors = ['#FFD700', '#FFA500', '#FF6347', '#FF69B4', '#00CED1'];
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight * 0.5;
+
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                document.body.appendChild(particle);
+
+                const angle = (Math.PI * 2 * i) / 30;
+                const velocity = 2 + Math.random() * 3;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+
+                animateFirework(particle, vx, vy);
+            }
+        }
+
+        function animateFirework(particle, vx, vy) {
+            let x = 0, y = 0;
+            let opacity = 1;
+            const gravity = 0.1;
+            let currentVy = vy;
+
+            function frame() {
+                x += vx;
+                y += currentVy;
+                currentVy += gravity;
+                opacity -= 0.015;
+
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+                particle.style.opacity = opacity;
+
+                if (opacity > 0) {
+                    requestAnimationFrame(frame);
+                } else {
+                    particle.remove();
+                }
+            }
+            requestAnimationFrame(frame);
+        }
+
+        // Trigger fireworks periodically
+        setInterval(createFirework, 2000);
+
+        // Initial fireworks
+        setTimeout(createFirework, 500);
+        setTimeout(createFirework, 1000);
+        setTimeout(createFirework, 1500);
+    </script>
+</body>
+</html>
