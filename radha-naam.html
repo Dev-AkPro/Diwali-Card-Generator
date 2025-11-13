@@ -1,0 +1,219 @@
+
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://hits.sh" crossorigin>
+<link rel="dns-prefetch" href="//hits.sh">
+<link rel="preconnect" href="https://ia903405.us.archive.org" crossorigin>
+<link rel="dns-prefetch" href="//ia903405.us.archive.org">
+<title>राधा नाम जप — Counter</title>
+<meta name="description" content="राधा नाम जप काउंटर के साथ अपनी दैनिक जप साधना को ट्रैक करें। यह तेज, हल्का और मोबाइल फ्रेंडली जप ट्रैकर है जो माला, कुल जप और इतिहास को सहेजता है।" />
+<meta name="keywords" content="Radha Naam Jap Counter, राधा नाम जप, जप काउंटर, माला काउंटर, जाप माला ट्रैकर, mantra counter, chanting counter, jap counter, rosary counter, bhakti sadhana, bhajan counter, kirtan counter, hare krishna mantra counter, vrindavan, bhakti, sadhana, daily japa tracker, meditation timer, हिंदू मंत्र, आध्यात्मिक साधना, devotional, naam jap, daily streak, jap history, offline counter, mobile counter, PWA japa, hindi mantra counter, simple jap counter, fast jap counter" />
+<meta name="author" content="DevJisu" />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://radha-naam.site/" />
+<meta property="og:title" content="राधा नाम जप — Digital Mantra Counter" />
+<meta property="og:description" content="सरल और तेज राधा नाम जप काउंटर जो कुल जप, दैनिक जप और माला की गणना को सहेजता है। मोबाइल पर भी बेहतरीन अनुभव।" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://radha-naam.site/" />
+<meta property="og:locale" content="hi_IN" />
+<meta property="og:image" content="https://radha-naam.site/preview.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="राधा नाम जप — Digital Jap Counter" />
+<meta name="twitter:description" content="राधा नाम जप को ट्रैक करें, कुल जप देखें और 365 दिनों का इतिहास सहेजें।" />
+<meta name="theme-color" content="#f08a1a" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+<style>
+  :root{
+    --accent:#f08a1a;
+    --accent-dark:#d97706;
+    --card:#fff7f2;
+    --shadow-light:0 2px 8px rgba(0,0,0,0.08);
+    --shadow-medium:0 4px 16px rgba(0,0,0,0.12);
+    --shadow-strong:0 8px 32px rgba(0,0,0,0.16);
+    --shadow-3d:0 12px 40px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;font-family:'Noto Sans Devanagari',Arial,sans-serif;background:#fff;overflow-x:hidden;user-select:none;position:relative}
+  .wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;position:relative}
+  header{font-size:clamp(20px,5.5vw,36px);color:var(--accent);font-weight:800;text-align:center;margin-bottom:12px;letter-spacing:1px}
+  .top-info{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:12px;width:100%;max-width:500px}
+  .chip{background:#fff;padding:8px 14px;border-radius:12px;font-size:13px;box-shadow:var(--shadow-light);border:1px solid rgba(240,138,26,0.1);color:#555;font-weight:600;white-space:nowrap}
+  @media (max-width:480px){.chip{font-size:11px;padding:6px 10px}}
+  .counter-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;max-width:400px;margin:auto;padding:10px}
+  .ring{position:relative;width:min(65vw,260px);height:min(65vw,260px);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-3d);background:#fff;padding:8px}
+  @media (max-width:480px){.ring{width:min(70vw,240px);height:min(70vw,240px)}}
+  .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .numbox{position:absolute;width:50%;height:50%;display:flex;align-items:center;justify-content:center;border-radius:16px;background:linear-gradient(180deg,#fff,#fff3f0);font-weight:800;font-size:clamp(28px,7vw,48px);color:#222;box-shadow:var(--shadow-medium),inset 0 -2px 8px rgba(240,138,26,0.08);border:2px solid rgba(240,138,26,0.15);transition:transform 0.1s ease}
+  @media (max-width:480px){.numbox{font-size:clamp(24px,8vw,36px)}}
+  .numbox:active{transform:scale(0.98)}
+  .cards{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px;width:100%;max-width:400px}
+  @media (max-width:480px){.cards{gap:8px;margin-top:15px}}
+  .card{flex:1 1 calc(33.333% - 7px);min-width:90px;background:#fff;padding:12px 8px;border-radius:12px;text-align:center;box-shadow:var(--shadow-light);border:1px solid rgba(240,138,26,0.1);transition:box-shadow 0.2s ease}
+  @media (max-width:480px){.card{padding:10px 6px;min-width:80px}}
+  .card:hover{box-shadow:var(--shadow-medium)}
+  .card .label{font-size:11px;color:#777;display:flex;align-items:center;justify-content:center;gap:4px;font-weight:600;margin-bottom:4px}
+  @media (max-width:480px){.card .label{font-size:10px}}
+  .card .value{font-weight:800;font-size:20px;margin-top:2px;color:var(--accent-dark)}
+  @media (max-width:480px){.card .value{font-size:18px}}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px;width:100%;max-width:400px;padding:0 10px}
+  @media (max-width:480px){.controls{gap:6px;margin-top:15px}}
+  button{border:none;background:var(--accent);color:white;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;transition:all .2s ease;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow-light);font-size:13px;flex:1 1 auto;min-width:100px;justify-content:center}
+  @media (max-width:480px){button{padding:8px 12px;font-size:12px;min-width:80px}}
+  button:hover{box-shadow:var(--shadow-medium);transform:translateY(-1px)}
+  button:active{transform:translateY(0);box-shadow:var(--shadow-light)}
+  button.ghost{background:#fff;color:var(--accent-dark);border:2px solid var(--accent);box-shadow:var(--shadow-light)}
+  button.ghost:hover{background:rgba(240,138,26,0.05);box-shadow:var(--shadow-medium)}
+  .floating-name{position:fixed;pointer-events:none;font-weight:900;font-size:28px;color:#e64b7a;opacity:0;transform:translate(-50%,-60%) scale(.9);animation:fadeRise 1s ease forwards;white-space:nowrap;z-index:1000}
+  @media (prefers-reduced-motion: reduce){
+    .floating-name{animation:none;opacity:.85}
+    button, .card, .numbox{transition:none}
+  }
+  @keyframes fadeRise{0%{opacity:0;transform:translate(-50%,-40%) scale(.8);}50%{opacity:1;transform:translate(-50%,-50%) scale(1);}100%{opacity:0;transform:translate(-50%,-80%) scale(1.1);}}
+  .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:9999}
+  .modal-content{background:white;padding:20px;border-radius:16px;width:90%;max-width:500px;max-height:85vh;overflow:auto;box-shadow:var(--shadow-strong);position:relative}
+  @media (max-width:480px){.modal-content{padding:15px;width:95%;max-height:90vh}}
+  .modal h3{text-align:center;margin-top:0;color:var(--accent);font-size:20px;margin-bottom:15px}
+  @media (max-width:480px){.modal h3{font-size:18px}}
+  footer{text-align:center;margin:12px 0;color:#777;font-size:12px}
+  @media (max-width:480px){footer{font-size:11px;margin:10px 0}}
+  
+</style>
+</head>
+<body>
+  <div class="wrap" id="tapArea">
+    <header>राधा नाम जप</header>
+    <div class="top-info">
+      <div class="chip" id="timer"><i class="fa-solid fa-clock"></i> <span id="timerText">00:00:00</span></div>
+      <div class="chip"><i class="fa-solid fa-check"></i> No Ads</div>
+      <div class="chip" id="dayTimeChip"><i class="fa-solid fa-hourglass-half"></i> <span id="dayTimeText">आज: 0 मिनट</span></div>
+      <div class="chip">
+        <label for="deitySelect" style="margin-right:6px;color:#555;font-weight:600">नाम:</label>
+        <select id="deitySelect" style="border:1px solid rgba(240,138,26,0.3);border-radius:8px;padding:6px 8px;font-weight:700;color:#333;background:#fff">
+          <option value="राधा">राधा</option>
+          <option value="कृष्ण">कृष्ण</option>
+          <option value="राम">राम</option>
+          <option value="शिव">शिव</option>
+          <option value="हनुमान">हनुमान</option>
+          <option value="दुर्गा">दुर्गा</option>
+          <option value="विष्णु">विष्णु</option>
+        </select>
+      </div>
+      <div class="chip" id="streakChip"><i class="fa-solid fa-fire"></i> <span id="streakText">Streak: 0 🔥 | Best: 0</span></div>
+    </div>
+    <div class="counter-area">
+      <div class="ring" aria-hidden>
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0%" stop-color="#f6b37a"/>
+              <stop offset="100%" stop-color="#f08a1a"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#eee" stroke-width="10"></circle>
+          <circle id="progress" cx="50" cy="50" r="40" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="251.2"></circle>
+        </svg>
+        <div class="numbox" id="countBox">1</div>
+      </div>
+      <div id="startPrompt" class="start-prompt">पहली बार क्लिक करें जप शुरू करने के लिए</div>
+      <div class="cards">
+        <div class="card"><div class="label"><i class="fa-solid fa-beads"></i> Malas</div><div class="value" id="malas">0</div></div>
+        <div class="card"><div class="label"><i class="fa-solid fa-circle-dot"></i> Total Japa</div><div class="value" id="total">0</div></div>
+        <div class="card"><div class="label"><i class="fa-solid fa-sun"></i> Today's Japa</div><div class="value" id="today">0</div></div>
+      </div>
+      <div class="controls">
+        <button id="showNames"><i class="fa-solid fa-list"></i> 28 Names</button>
+        <button id="leader"><i class="fa-solid fa-chart-line"></i> History</button>
+        <button id="fullscreen" class="ghost"><i class="fa-solid fa-expand"></i> Fullscreen</button>
+        <button id="reset" class="ghost"><i class="fa-solid fa-rotate"></i> Reset</button>
+        <button id="setGoal" class="ghost"><i class="fa-solid fa-bullseye"></i> Goal</button>
+        <button id="shareBtn"><i class="fa-solid fa-share-nodes"></i> Share</button>
+        <button id="exportBtn"><i class="fa-solid fa-file-export"></i> Export</button>
+        <button id="importBtn" class="ghost"><i class="fa-solid fa-file-import"></i> Import</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none" />
+      </div>
+    </div>
+    <footer><i class="fa-solid fa-code"></i> Designed & Developed by <strong>DevJisu</strong></footer>
+  </div>
+  
+  <div class="modal" id="namesModal">
+    <div class="modal-content">
+      <h3><i class="fa-solid fa-heart"></i> राधा के 28 नाम</h3>
+      <ul id="namesList" style="list-style:none;padding-left:0;font-size:16px;line-height:2;color:#444;text-align:center"></ul>
+      <button onclick="closeNames()" style="margin-top:15px;width:100%"><i class="fa-solid fa-xmark"></i> Close</button>
+    </div>
+  </div>
+  <div class="modal" id="historyModal">
+    <div class="modal-content">
+      <h3><i class="fa-solid fa-calendar-days"></i> जप इतिहास (365 Days)</h3>
+      <div id="historyList" style="max-height:400px;overflow-y:auto;margin-top:15px"></div>
+      <button onclick="closeModal()" style="margin-top:15px;width:100%"><i class="fa-solid fa-xmark"></i> Close</button>
+    </div>
+  </div>
+  
+<script>
+const HISTORY_PREFIX = 'radha_japa_day_';
+const MAX_HISTORY_DAYS = 365;
+const names=["राधा","रासेश्वरी","रम्या","कृष्णमत्राधिदेवता","सर्वाद्या","सर्ववन्द्या","वृन्दावनविहारिणी","वृन्दाराध्या","रमा","अशेषगोपीमण्डलपूजिता","सत्या","सत्यपरा","सत्यभामा","श्रीकृष्णवल्लभा","वृषभानुसुता","गोपी","मूल प्रकृति","ईश्वरी","गान्धर्वा","राधिका","रम्या","रुक्मिणी","परमेश्वरी","परात्परतरा","पूर्णा","पूर्णचन्द्रविमानना","भुक्ति- मुक्तिप्रदा","भावव्याधि-विनाशिनी"];
+const countBox=document.getElementById('countBox'),malasEl=document.getElementById('malas'),totalEl=document.getElementById('total'),todayEl=document.getElementById('today'),progress=document.getElementById('progress'),timerEl=document.getElementById('timerText'),startPrompt=document.getElementById('startPrompt');
+const dayTimeText=document.getElementById('dayTimeText');
+const deitySelect=document.getElementById('deitySelect');
+const headerEl=document.querySelector('header');
+const streakText=document.getElementById('streakText');
+const setGoalBtn=document.getElementById('setGoal');
+const shareBtn=document.getElementById('shareBtn');
+const exportBtn=document.getElementById('exportBtn');
+const importBtn=document.getElementById('importBtn');
+const importFile=document.getElementById('importFile');
+const numberFormatter=new Intl.NumberFormat('hi-IN');
+const ISTFormatter=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'});
+const DisplayFormatter=new Intl.DateTimeFormat('hi-IN',{timeZone:'Asia/Kolkata',day:'2-digit',month:'short',year:'numeric'});
+const KEY='radha_japa_history_v2';
+let state={count:1,malas:0,total:0,today:0,todayMs:0,startTime:null,lastTickMs:null,timerRunning:false,lastDate:getISTDateString(),selectedDeity:'राधा',dailyGoal:108,streak:0,bestStreak:0};
+function getISTDateString(date=new Date()){return ISTFormatter.format(date);}
+function parseISTDate(dateString){return new Date(`${dateString}T00:00:00+05:30`);}
+function calculateAllTimeTotal(includeCurrent=true){let total=0;const todayKey=getISTDateString();let todayCovered=false;for(let i=0;i<MAX_HISTORY_DAYS;i++){const date=new Date();date.setDate(date.getDate()-i);const key=HISTORY_PREFIX+getISTDateString(date);const raw=localStorage.getItem(key);if(!raw)continue;try{const data=JSON.parse(raw);const value=Number(data?.total)||0;total+=value;if(key===HISTORY_PREFIX+todayKey)todayCovered=true;}catch(e){}}if(includeCurrent&&state.today&&!todayCovered){total+=Number(state.today)||0;}return total;}
+function refreshTotalsFromHistory(){const historyTotal=calculateAllTimeTotal(false);state.total=Math.max(Number(state.total)||0,historyTotal,Number(state.today)||0);}
+function ensureTodaySync(){const todayKey=getISTDateString();if(state.lastDate!==todayKey){const yesterdayDate=new Date();yesterdayDate.setDate((new Date()).getDate()-1);const yKey=HISTORY_PREFIX+getISTDateString(yesterdayDate);let yHadActivity=false;try{const yRaw=localStorage.getItem(yKey);if(yRaw){const y=JSON.parse(yRaw);yHadActivity=(Number(y?.total)||0)>0||(Number(y?.totalMs)||0)>0;}}catch(e){}
+  state.streak = yHadActivity ? (Number(state.streak)||0)+1 : 0;
+  if(state.streak>state.bestStreak) state.bestStreak=state.streak;
+  state.lastDate=todayKey;state.today=0;state.todayMs=0;state.count=1;state.startTime=null;state.lastTickMs=null;state.timerRunning=false;refreshTotalsFromHistory();return true;}return false;}
+function load(){try{const stored=localStorage.getItem(KEY);if(stored){const data=JSON.parse(stored);state.count=Number(data.state?.count)||1;state.malas=Number(data.state?.malas)||0;state.total=Number(data.state?.total)||0;state.today=Number(data.state?.today)||0;state.todayMs=Number(data.state?.todayMs)||0;state.lastDate=data.state?.lastDate||getISTDateString();state.selectedDeity=(data.state?.selectedDeity)||'राधा';state.dailyGoal=Number(data.state?.dailyGoal)||108;state.streak=Number(data.state?.streak)||0;state.bestStreak=Number(data.state?.bestStreak)||0;}}catch(e){}ensureTodaySync();refreshTotalsFromHistory();}
+function render(){countBox.textContent=numberFormatter.format(state.count);malasEl.textContent=numberFormatter.format(state.malas);totalEl.textContent=numberFormatter.format(state.total);todayEl.textContent=numberFormatter.format(state.today);progress.style.strokeDashoffset=String(251.2-251.2*((state.count-1)/108));startPrompt.style.display=state.timerRunning?'none':'block';if(!state.timerRunning||!state.startTime){timerEl.textContent='00:00:00';}else{timerEl.textContent=fmt(Date.now()-state.startTime);}const mins=Math.round((Number(state.todayMs)||0)/60000);if(dayTimeText)dayTimeText.textContent=`आज: ${numberFormatter.format(mins)} मिनट`;if(deitySelect){deitySelect.value=state.selectedDeity;}if(headerEl){headerEl.textContent=state.selectedDeity+" नाम जप";}if(streakText){streakText.textContent=`Streak: ${numberFormatter.format(state.streak)} 🔥 | Best: ${numberFormatter.format(state.bestStreak)}`;}}
+function saveDay(){const dayKey=HISTORY_PREFIX+(state.lastDate||getISTDateString());if(state.today||state.todayMs||localStorage.getItem(dayKey)){localStorage.setItem(dayKey,JSON.stringify({total:Number(state.today)||0,malas:Number(state.malas)||0,totalMs:Number(state.todayMs)||0,updated:Date.now()}));}}
+function save(){try{state.lastDate=getISTDateString();saveDay();refreshTotalsFromHistory();localStorage.setItem(KEY,JSON.stringify({state:{count:state.count,malas:state.malas,total:state.total,today:state.today,todayMs:state.todayMs,lastDate:state.lastDate,selectedDeity:state.selectedDeity,dailyGoal:state.dailyGoal,streak:state.streak,bestStreak:state.bestStreak}}));}catch(e){}}
+function createFloatingName(x,y){const el=document.createElement('div');el.className='floating-name';el.textContent=state.selectedDeity||'जप';el.style.left=x+'px';el.style.top=y+'px';document.body.appendChild(el);setTimeout(()=>el.remove(),1000);}
+function increment(){ensureTodaySync();const now=Date.now();if(!state.timerRunning){state.startTime=now;state.lastTickMs=now;state.timerRunning=true;if(state.audioEnabled){mantraAudio.play().catch(()=>{});}}else if(state.lastTickMs){state.todayMs+=Math.max(0, now-state.lastTickMs);state.lastTickMs=now;}state.count++;state.total++;state.today++;if(state.count>108){state.malas++;state.count=1;if('vibrate' in navigator){navigator.vibrate?.(30);}}save();render();}
+function fmt(ms){if(!ms)return'00:00:00';const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;return(h>0?String(h).padStart(2,'0')+':':'')+String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');}
+load();render();
+window.addEventListener('pointerdown',e=>{const tag=e.target.tagName.toLowerCase();if(['button','i','span'].includes(tag)||e.target.closest('button')||e.target.closest('.modal'))return;createFloatingName(e.clientX,e.clientY);increment();},{passive:true});
+setInterval(()=>{ensureTodaySync();if(state.timerRunning&&state.startTime){const now=Date.now();if(state.lastTickMs){state.todayMs+=Math.max(0, now-state.lastTickMs);}state.lastTickMs=now;timerEl.textContent=fmt(now-state.startTime);render();save();}},1000);
+ 
+document.getElementById('reset').addEventListener('click',()=>{if(confirm('क्या आप काउंटर रीसेट करना चाहते हैं? (Timer और आज का जप शून्य हो जाएगा)')){ensureTodaySync();state.count=1;state.today=0;state.todayMs=0;state.malas=0;state.startTime=null;state.lastTickMs=null;state.timerRunning=false;refreshTotalsFromHistory();save();render();}});
+document.getElementById('fullscreen').addEventListener('click',async()=>{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();});
+function closeModal(){document.getElementById('historyModal').style.display='none';}
+function closeNames(){document.getElementById('namesModal').style.display='none';}
+function showNames(){const modal=document.getElementById('namesModal');const list=document.getElementById('namesList');list.innerHTML='';names.forEach((n,i)=>{const li=document.createElement('li');li.style.padding='8px 0';li.style.borderBottom=i<names.length-1?'1px solid #eee':'none';li.textContent=`${i+1}. ${n}`;list.appendChild(li);});modal.style.display='flex';}
+function showHistory(){const modal=document.getElementById('historyModal');const list=document.getElementById('historyList');const totalHistory=calculateAllTimeTotal();list.innerHTML=`<div style="text-align:center;color:#555;margin-bottom:12px;font-weight:600;">कुल जप: ${numberFormatter.format(totalHistory)}</div>`;let hasData=false;for(let i=0;i<MAX_HISTORY_DAYS;i++){const date=new Date();date.setDate(date.getDate()-i);const keyDate=getISTDateString(date);const key=HISTORY_PREFIX+keyDate;const raw=localStorage.getItem(key);if(!raw)continue;let data;try{data=JSON.parse(raw);}catch(e){continue;}const totalForDay=Number(data?.total)||0;const malasForDay=Number(data?.malas)||0;const msForDay=Number(data?.totalMs)||0;const minsForDay=Math.round(msForDay/60000);if(totalForDay<=0&&malasForDay<=0&&minsForDay<=0)continue;hasData=true;const displayDate=DisplayFormatter.format(parseISTDate(keyDate));const div=document.createElement('div');div.style.margin='8px 0';div.style.padding='10px';div.style.background='#fff';div.style.borderRadius='10px';div.style.boxShadow='var(--shadow-light)';div.style.border='1px solid rgba(240,138,26,0.12)';div.innerHTML=`<strong>${displayDate}</strong><br/><span style="color:var(--accent-dark)">जप: ${numberFormatter.format(totalForDay)}</span> • <span style="color:var(--accent)">माला: ${numberFormatter.format(malasForDay)}</span> • <span style="color:#555">समय: ${numberFormatter.format(minsForDay)} मिनट</span>`;list.appendChild(div);}if(!hasData){list.innerHTML+='<div style="text-align:center;color:#999;padding:20px">अभी तक कोई इतिहास नहीं है</div>';}
+  modal.style.display='flex';}
+document.getElementById('showNames').addEventListener('click',showNames);
+document.getElementById('leader').addEventListener('click',showHistory);
+if(deitySelect){deitySelect.addEventListener('change',()=>{state.selectedDeity=deitySelect.value||'राधा';save();render();});}
+window.addEventListener('focus',()=>{const rolled=ensureTodaySync();if(rolled)save();render();});
+window.addEventListener('beforeunload',save);
+if(setGoalBtn){setGoalBtn.addEventListener('click',()=>{const v=prompt('Daily Goal (जप)', String(state.dailyGoal||108));if(v!==null){const n=Math.max(0,Math.floor(Number(v)||0));state.dailyGoal=n;save();render();}});}
+if(shareBtn){shareBtn.addEventListener('click',async()=>{const text=`${state.selectedDeity} नाम जप\nआज: ${state.today} जप (${Math.round((state.todayMs||0)/60000)} मिनट)\nमाला: ${state.malas}\nकुल: ${state.total}`;const url=location.href;try{if(navigator.share){await navigator.share({title:document.title,text,url});}else{await navigator.clipboard.writeText(`${text}\n${url}`);alert('Copied summary to clipboard!');}}catch(e){}});}
+if(exportBtn){exportBtn.addEventListener('click',()=>{const dump={version:2,exportedAt:Date.now(),state,history:{}};for(let i=0;i<MAX_HISTORY_DAYS;i++){const d=new Date();d.setDate(d.getDate()-i);const key=HISTORY_PREFIX+getISTDateString(d);const raw=localStorage.getItem(key);if(raw)dump.history[key]=JSON.parse(raw);}const blob=new Blob([JSON.stringify(dump,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='radha-naam-jap-export.json';a.click();URL.revokeObjectURL(a.href);});}
+if(importBtn&&importFile){importBtn.addEventListener('click',()=>importFile.click());importFile.addEventListener('change',async()=>{const f=importFile.files?.[0];if(!f)return;try{const text=await f.text();const data=JSON.parse(text);if(data?.state){Object.assign(state,data.state);}if(data?.history){Object.entries(data.history).forEach(([k,v])=>{localStorage.setItem(k,JSON.stringify(v));});}save();render();alert('Import successful');}catch(e){alert('Import failed');}finally{importFile.value='';}});}
+</script>
+<center>
+  <img alt="Hits" src="https://hits.sh/radha-naam.site.svg?view=today-total&style=for-the-badge&label=CLICKS&color=cc1211&labelColor=000000&logo=dolby"/>
+</center>
+
+</body>
+</html>
